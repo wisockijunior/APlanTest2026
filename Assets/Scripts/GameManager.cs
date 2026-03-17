@@ -29,7 +29,10 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
 
+    private void Start()
+    {
         ResetGame();
     }
 
@@ -55,8 +58,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// testing environment
-    /// emulate a movement and update UI
+    /// Take a move
     /// </summary>
     public void DoMakeMove()
     {
@@ -65,7 +67,6 @@ public class GameManager : MonoBehaviour
         if (RemainingMoves > 0)
         {
             RemainingMoves--;
-            AddScore(10);
 
             OnMovesChanged?.Invoke(RemainingMoves);
             if (RemainingMoves <= 0)

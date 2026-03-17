@@ -36,5 +36,13 @@ public class Block : MonoBehaviour
         transform.position = worldPos;
     }
 
-    
+    private void OnMouseDown()
+    {
+        if (GridManager.Instance != null)
+        {
+            GridManager.Instance.HandleBlockTap(this);
+        }
+    }
+
+
 }
