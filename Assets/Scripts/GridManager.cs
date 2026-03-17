@@ -29,7 +29,8 @@ public class GridManager : MonoBehaviour
     {
         // Don't regenerate if we're playing, it might mess up game state
         if (Application.isPlaying) return;
-        
+
+#if UNITY_EDITOR
         // Wait one frame to avoid internal Unity warnings during OnValidate
         UnityEditor.EditorApplication.delayCall += () => {
 
@@ -38,6 +39,7 @@ public class GridManager : MonoBehaviour
             GenerateGrid();
             
         };
+#endif
     }
 
     private void SetupGridParent()
